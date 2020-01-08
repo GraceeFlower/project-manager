@@ -1,0 +1,28 @@
+.project-card {
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.project-card > .task-card {
+  width: 23%;
+  height: 110px;
+  background-color: yellowgreen;
+  border-radius: 6px;
+}
+
+.project-card > .all-task-card {
+  background-color: #31b48d;
+}
+
+.project-card > .active-task-card {
+  background-color: #38a1f2;
+}
+
+.project-card > .pending-task-card {
+  background-color: #7538c7;
+}
+
+.project-card > .closed-task-card {
+  background-color: #3b67a4;
+}
