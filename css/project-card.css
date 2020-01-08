@@ -46,10 +46,10 @@
 .task-card .info-bar {
   display: flex;
   justify-content: space-between;
+  color: #fff;
 }
 
 .task-card .text-info {
-  color: #fff;
   font-size: 14px;
 }
 
@@ -61,5 +61,9 @@
 
 .task-card .data-info {
   margin-top: 10px;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 30px;
 }
+
 
