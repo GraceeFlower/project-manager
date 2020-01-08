@@ -5,9 +5,9 @@
 }
 
 .project-card > .task-card {
+  position: relative;
   width: 23%;
   height: 110px;
-  background-color: yellowgreen;
   border-radius: 6px;
 }
 
@@ -25,4 +25,13 @@
 
 .project-card > .closed-task-card {
   background-color: #3b67a4;
+}
+
+.project-card .iconfont {
+  position: absolute;
+  right: 10px;
+  line-height: 110px;
+  font-size: 100px;
+  color: #fff;
+  opacity: .3;
 }

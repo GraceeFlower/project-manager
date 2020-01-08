@@ -19,7 +19,7 @@
   content: "\e60a";
 }
 
-.icon-xiangmu:before {
+.icon-all-task:before {
   content: "\e60c";
 }
 
@@ -43,11 +43,11 @@
   content: "\e68e";
 }
 
-.icon-yijiejue2:before {
+.icon-closed-task:before {
   content: "\e614";
 }
 
-.icon-weijiejue:before {
+.icon-active-task:before {
   content: "\e651";
 }
 
@@ -55,7 +55,7 @@
   content: "\e619";
 }
 
-.icon-loudou:before {
+.icon-pending-task:before {
   content: "\e615";
 }
 
