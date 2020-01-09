@@ -65,7 +65,7 @@ li > .item-desc:hover .complete-desc {
 }
 
 .item-desc > p {
-  display: -webkit-inline-box;
+  display: -webkit-box;
   margin: 6px 0 0 0;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;

@@ -1,5 +1,22 @@
 let numList = document.getElementsByClassName("specific-figure");
 let percentList = document.getElementsByClassName("percent-figure");
+let itemList = document.getElementById('item-list');
+const API_ROOT = "http://localhost:3000/projects";
+
+function getItemData(data) {
+  renderItem(data);
+  calculatePercent();
+  splitThousandsOfBits();
+}
+
+function getListData() {
+  ajax({
+    url: API_ROOT,
+    method: "GET",
+    success: function (result) {getItemData(result)},
+    fail: function (error) {console.log(error)}
+  })();
+}
 
 function calculatePercent() {
   for(let item = 1; item < numList.length; item++) {
@@ -14,18 +31,6 @@ function splitThousandsOfBits() {
   [...numList].forEach(item => 
     item.innerHTML = item.innerHTML.replace(regexp, '$&,'));
 }
-
-const API_ROOT = "http://localhost:3000/projects";
-let itemList = document.getElementById('item-list');
-  
-(function getListData() {
-  ajax({
-    url: API_ROOT,
-    method: "GET",
-    success: function (result) {getItemData(result)},
-    fail: function (error) {console.log(error)}
-  });
-})();
 
 function markItemStatus(status) {
   numList[0].innerHTML = Number(numList[0].innerHTML) + 1;
@@ -42,12 +47,6 @@ function markItemStatus(status) {
     default:
       break;
   }
-}
-
-function getItemData(data) {
-  renderItem(data);
-  calculatePercent();
-  splitThousandsOfBits();
 }
 
 function renderItem(data) {
@@ -71,3 +70,5 @@ function renderItem(data) {
     </li>`;
   }, '');
 }
+
+getListData();
