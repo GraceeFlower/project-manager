@@ -65,10 +65,14 @@ function renderItem(data) {
       <span class="item-deadline">${cur.endTime}</span>
       <span class="item-status ${statusStyle}">${cur.status}</span>
       <span class="item-operation">
-        <input type="button" name="delete-item-btn" value="删除" />
+        <input type="button" name="delete-item-btn" value="删除" onclick="deleteItem(${cur.id})"/>
       </span>
     </li>`;
   }, '');
+}
+
+function deleteItem(itemId) {
+  alert(itemId);
 }
 
 getListData();
