@@ -15,7 +15,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-wenhao:before {
+.icon-confirm:before {
   content: "\e60a";
 }
 
@@ -67,7 +67,7 @@
   content: "\e62a";
 }
 
-.icon-guanbi:before {
+.icon-close:before {
   content: "\e600";
 }
 

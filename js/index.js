@@ -1,6 +1,8 @@
-let numList = document.getElementsByClassName("specific-figure");
-let percentList = document.getElementsByClassName("percent-figure");
+let numList = document.getElementsByClassName('specific-figure');
+let percentList = document.getElementsByClassName('percent-figure');
 let itemList = document.getElementById('item-list');
+let confirmBtn = document.getElementsByName('confirm')[0];
+let confirmPage = document.getElementsByClassName('confirm-deletion-page')[0];
 const API_ROOT = "http://localhost:3000/projects";
 
 function getItemData(data) {
@@ -15,7 +17,7 @@ function getListData() {
     method: "GET",
     success: function (result) {getItemData(result)},
     fail: function (error) {console.log(error)}
-  })();
+  });
 }
 
 function calculatePercent() {
@@ -72,7 +74,18 @@ function renderItem(data) {
 }
 
 function deleteItem(itemId) {
-  alert(itemId);
+  confirmPage.style.display = 'block';
+  confirmBtn.addEventListener('click', function () {
+    removeItem(itemId);
+  }, true);
+}
+
+function removeItem(itemId) {
+  alert(itemId)
+}
+
+function closeConfirm() {
+  confirmPage.style.display = 'none';
 }
 
 getListData();

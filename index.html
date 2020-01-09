@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="./css/index.css">
   <link rel="stylesheet" href="./css/project-card.css">
   <link rel="stylesheet" href="./css/project-list.css">
+  <link rel="stylesheet" href="./css/confirm-page.css">
   <link rel="stylesheet" href="./iconfont/iconfont.css">
 </head>
 <body>
@@ -78,7 +79,18 @@
     </div>
   </div>
   <div class="confirm-deletion-page">
-
+    <div class="confirm-dialog-box">
+      <button onclick="closeConfirm()"><span class="iconfont icon-close"></span></button>
+      <div>
+        <span class="iconfont icon-confirm"></span>
+        <h1>提示</h1>
+        <p>确认删除该项目吗?</p>
+      </div>
+      <div>
+        <input type="button" name="confirm" value="确认" />
+        <input type="button" name="cancel" value="取消" onclick="closeConfirm()"/>
+      </div>
+    </div>
   </div>
 
   <script src="./js/ajax.js"></script>
