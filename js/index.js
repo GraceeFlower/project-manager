@@ -20,3 +20,50 @@ function initStatistic() {
 }
 
 initStatistic();
+
+const API_ROOT = "http://localhost:3000/projects";
+let itemList = document.getElementById('item-list');
+  
+function getListData() {
+  ajax({
+    url: API_ROOT,
+    method: "GET",
+    success: function (result) {renderItemList(result)},
+    fail: function (error) {console.log(error)}
+  });
+}
+
+function markItemStatus(status) {
+  switch(status) {
+    case 'ACTIVE':
+      return 'active-item';
+    case 'PENDING':
+      return 'pending-item';
+    case 'CLOSED':
+      return 'closed-item';
+    default:
+      break;
+  }
+}
+
+function renderItemList(data) {
+  if (!Array.isArray(data) && !data instanceof Array) {
+    return false;
+  }
+
+  itemList.innerHTML = data.reduce((acc, cur) => {
+    const statusStyle = markItemStatus(cur.status);
+    return acc += 
+    `<li>
+      <span class="item-name">${cur.name}</span>
+      <span class="item-desc"><p>${cur.description}</p></span>
+      <span class="item-deadline">${cur.endTime}</span>
+      <span class="item-status ${statusStyle}">${cur.status}</span>
+      <span class="item-operation">
+        <input type="button" name="delete-item-btn" value="删除" />
+      </span>
+    </li>`;
+  }, '');
+}
+
+getListData();

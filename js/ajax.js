@@ -10,14 +10,14 @@ window.ajax = function (options) {
 
   let xhr = new XMLHttpRequest();
 
-  xhr.open(ajaxData.method, ajaxData.url, ajaxData.data);
+  xhr.open(ajaxData.method, ajaxData.url, true);
 
   if ('POST' === ajaxData.method || 'PUT' === ajaxData.method) {
     xhr.setRequestHeader = ('content-type', 'application/json');
     ajaxData = JSON.stringify(ajaxData.data);
   }
 
-  xhr.onsuccess = () => ajaxData.success(xhr.responseText);
+  xhr.onload = () => ajaxData.success(JSON.parse(xhr.responseText));
   xhr.onerror = () => ajaxData.fail(xhr.status);
 
   xhr.send(ajaxData.data);

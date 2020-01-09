@@ -5,27 +5,29 @@
 .project-list > ul {
   margin: 0;
   padding: 0;
+}
+
+.project-list ul > li, .project-list .list-header {
+  padding: 0 10px;
+  border-bottom: 1px solid #DCDEE3;
+  color: #333;
   list-style: none;
   font-size: 15px;
   font-weight: bold;
 }
 
 .project-list ul > li {
-  padding: 0 10px;
   height: 62px;
   line-height: 60px;
-  border-bottom: 1px solid #DCDEE3;
-  color: #333;
 }
 
-.project-list ul > li:first-child {
+.project-list .list-header {
   height: 40px;
   line-height: 38px;
   background-color: #EBECF0;
 }
 
-
-.project-list ul > li > span {
+.project-list ul > li > span, .project-list .list-header > span{
   display: inline-block;
   line-height: 23px;
   vertical-align: middle;
@@ -51,7 +53,7 @@
   word-break: break-all;
 }
 
-.item-deadline, .item-state {
+.item-deadline, .item-status {
   width: calc(14% - 5px);
 }
 
