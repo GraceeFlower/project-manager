@@ -1,12 +1,12 @@
 .project-card {
-  margin: 10px auto;
+  margin-top: 10px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .project-card > .task-card {
   position: relative;
-  width: 23%;
+  width: 24%;
   height: 110px;
   border-radius: 6px;
 }
