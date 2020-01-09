@@ -17,9 +17,8 @@ function initStatistic() {
   let percentList = document.getElementsByClassName("percent-figure");
   calculatePercent(numList, percentList);
   splitThousandsOfBits(numList);
+  getListData();
 }
-
-initStatistic();
 
 const API_ROOT = "http://localhost:3000/projects";
 let itemList = document.getElementById('item-list');
@@ -56,7 +55,10 @@ function renderItemList(data) {
     return acc += 
     `<li>
       <span class="item-name">${cur.name}</span>
-      <span class="item-desc"><p>${cur.description}</p></span>
+      <span class="item-desc">
+        <p>${cur.description}</p>
+        <span class="complete-desc">${cur.description}</span>
+      </span>
       <span class="item-deadline">${cur.endTime}</span>
       <span class="item-status ${statusStyle}">${cur.status}</span>
       <span class="item-operation">
@@ -66,4 +68,4 @@ function renderItemList(data) {
   }, '');
 }
 
-getListData();
+initStatistic();

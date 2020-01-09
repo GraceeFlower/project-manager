@@ -39,8 +39,29 @@
 }
 
 .item-desc {
+  position: relative;
   padding-right: 30px;
   width: calc(42% - 35px);
+}
+
+.item-desc > .complete-desc {
+  display: none;
+  position: absolute;
+  padding: 8px;
+  width: 70%;
+  top: 30px;
+  right: 0px;
+  line-height: 15px;
+  z-index: 99;
+  border-radius: 4px;
+  font-size: 13px;
+  background-color: #EBECF0;
+  opacity: .9;
+  word-break: break-all;
+}
+
+li > .item-desc:hover .complete-desc {
+  display: inline-block;
 }
 
 .item-desc > p {
