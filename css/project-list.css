@@ -1,0 +1,83 @@
+.project-list {
+  text-align: left;
+}
+
+.project-list > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.project-list ul > li {
+  padding: 0 10px;
+  height: 62px;
+  line-height: 60px;
+  border-bottom: 1px solid #DCDEE3;
+  color: #333;
+}
+
+.project-list ul > li:first-child {
+  height: 40px;
+  line-height: 38px;
+  background-color: #EBECF0;
+}
+
+
+.project-list ul > li > span {
+  display: inline-block;
+  line-height: 23px;
+  vertical-align: middle;
+}
+
+.item-name {
+  padding-right: 10px;
+  width: calc(22% - 15px);
+}
+
+.item-desc {
+  padding-right: 30px;
+  width: calc(42% - 35px);
+}
+
+.item-desc > p {
+  display: -webkit-inline-box;
+  margin: 6px 0 0 0;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-all;
+}
+
+.item-deadline, .item-state {
+  width: calc(14% - 5px);
+}
+
+.active-item {
+  color: #666;
+}
+
+.pending-item {
+  color: #ee706d;
+}
+
+.closed-item {
+  color: #f7da47
+}
+
+.item-operation {
+  width: 8%;
+}
+
+.item-operation > input {
+  height: 25px;
+  width: 41px;
+  border-color: transparent;
+  border-radius: 4px;
+  outline: none;
+  color: #fff;
+  background-color: #ee706d;
+  cursor: pointer;
+}
