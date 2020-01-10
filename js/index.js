@@ -7,7 +7,6 @@ let pageStatus = 'all';
 
 function getItemData(data) {
   separateStatus(data);
-  calculatePercent();
   splitThousandsOfBits()
 }
 
@@ -20,28 +19,24 @@ function getListData() {
   });
 }
 
-function calculatePercent() {
-  if (0 == numList[0].innerHTML) {
+function calculatePercent(lenArr) {
+  if (0 === lenArr[0]) {
     [...percentList].forEach(item => item.innerHTML = '0%');
   } else {
     let fullPercent = 100;
-    for(let item = 1; item < numList.length; item++) {
-      let percent = Math.round(Number(numList[item].innerHTML)
-        * 10000 / Number(numList[0].innerHTML)) / 100;
-      fullPercent -= percent;
-      percentList[item -1].innerHTML = percent + '%';
-    }
+    let percentArr = lenArr.slice(1).map((element) => 
+      Math.round(element * 10000 / lenArr[0]) / 100);
+    fullPercent -= percentArr.reduce((pre, cur) => pre + cur, 0);
     if (fullPercent) {
       let addIndex;
-      [...numList].filter((element, index, array) => {
-        if (array.lastIndexOf(element) === index) {
+      lenArr.slice(1).filter((element, index, arr) => {
+        if (arr.lastIndexOf(element) === index) {
           addIndex = index;
-        };
+        }
       });
-      percentList[addIndex - 1].innerHTML = 
-        (Number(percentList[addIndex - 1].innerHTML.match(/\d./g).join('.')) * 100
-        + Number(fullPercent.toFixed(2)) * 100) / 100 + '%';
+      percentArr[addIndex] = (percentArr[addIndex] * 100 + fullPercent.toFixed(2) * 100) / 100;
     }
+    percentArr.forEach((item, index) => percentList[index].innerHTML = item + '%');
   }
 }
 
@@ -53,6 +48,7 @@ function splitThousandsOfBits() {
 
 function initNumList(lenArr) {
   [...numList].forEach((value, index) => value.innerHTML = lenArr[index]);
+  calculatePercent(lenArr);
 }
 
 function handleData(data) {
@@ -171,7 +167,6 @@ function reloadStatistic() {
 function reloadNumList(data) {
   let{lenArr} = handleData(data);
   initNumList(lenArr);
-  calculatePercent();
   splitThousandsOfBits();
 }
 
