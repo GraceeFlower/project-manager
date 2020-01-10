@@ -22,7 +22,7 @@
   background-color: #EBECF0;
 }
 
-.project-list ul > li > span, .project-list .list-header > span{
+.project-list ul > li > span, .project-list .list-header > span {
   display: inline-block;
   line-height: 23px;
   vertical-align: middle;
@@ -90,8 +90,7 @@ li > .item-desc:hover .complete-desc {
 }
 
 .item-operation > input {
-  height: 25px;
-  width: 41px;
+  padding: 4px 8px;
   border-color: transparent;
   border-radius: 4px;
   outline: none;
