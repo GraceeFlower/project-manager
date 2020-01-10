@@ -21,14 +21,28 @@ function getListData() {
 }
 
 function calculatePercent() {
-  let closedPercent = 100;
-  for(let item = 1; item < numList.length - 1; item++) {
-    let percent = Math.round(Number(numList[item].innerHTML)
-       * 100 / Number(numList[0].innerHTML));
-    closedPercent -= percent;
-    percentList[item -1].innerHTML = percent + '%';
+  if (0 == numList[0].innerHTML) {
+    [...percentList].forEach(item => item.innerHTML = '0%');
+  } else {
+    let fullPercent = 100;
+    for(let item = 1; item < numList.length; item++) {
+      let percent = Math.round(Number(numList[item].innerHTML)
+        * 10000 / Number(numList[0].innerHTML)) / 100;
+      fullPercent -= percent;
+      percentList[item -1].innerHTML = percent + '%';
+    }
+    if (fullPercent) {
+      let addIndex;
+      [...numList].filter((element, index, array) => {
+        if (array.lastIndexOf(element) === index) {
+          addIndex = index;
+        };
+      });
+      percentList[addIndex - 1].innerHTML = 
+        (Number(percentList[addIndex - 1].innerHTML.match(/\d./g).join('.')) * 100
+        + Number(fullPercent.toFixed(2)) * 100) / 100 + '%';
+    }
   }
-  percentList[2].innerHTML = closedPercent + '%';
 }
 
 function splitThousandsOfBits() {
