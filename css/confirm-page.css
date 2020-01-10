@@ -8,3 +8,70 @@
   background: rgba(0, 0, 0, 0.3) ;
 }
 
+.confirm-dialog-box {
+  position: absolute;
+  width: 340px;
+  top: calc(30% - 90px);
+  left: calc(50% - 200px);
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.confirm-dialog-box > button {
+  border: none;
+  padding: 15px 0 0 310px;
+  font-size: 16px;
+  color: #666;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.confirm-info {
+  position: relative;
+  padding-left: 54px;
+}
+
+.confirm-info > h1 {
+  display: inline-block;
+  line-height: 24px;
+  font-size: 20px;
+  color: #333;
+}
+
+.confirm-info > span {
+  position: absolute;
+  top: 4px;
+  left: 20px;
+  font-size: 24px;
+  color: #FEC826;
+}
+
+.confirm-info > p {
+  color: #666;
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.confirm-btn-list {
+  margin: 18px 0;
+  padding-left: 210px;
+}
+
+.confirm-btn-list > input {
+  margin-left: 5px;
+  width: 46px;
+  height: 28px;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  outline: none;
+}
+
+.confirm-btn-list > input:first-of-type {
+  background-color: #3080FE;
+  color: #fff;
+}
+
+.confirm-btn-list > input:last-of-type {
+  background-color: #fbfbfb;
+}
