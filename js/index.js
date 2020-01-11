@@ -3,7 +3,12 @@ let percentList = document.getElementsByClassName('percent-figure');
 let itemList = document.getElementById('item-list');
 let confirmPage = document.getElementsByClassName('confirm-deletion-page')[0];
 const API_ROOT = "http://localhost:3000/projects";
-let pageStatus = 'all';
+
+const all = 'all';
+const active = 'active';
+const pending = 'pending';
+const closed = 'closed';
+let pageStatus = all;
 
 function getItemData(data) {
   separateStatus(data);
@@ -71,13 +76,13 @@ function separateStatus(data) {
   let {active, pending, closed, lenArr} = handleData(data);
   initNumList(lenArr);
   switch(pageStatus) {
-    case 'active':
+    case active:
       renderItem(active);
       break;
-    case 'pending':
+    case pending:
       renderItem(pending);
       break;
-    case 'closed':
+    case closed:
       renderItem(closed);
       break;
     default:
